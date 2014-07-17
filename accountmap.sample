@@ -1,0 +1,4 @@
+Acct-Cur	Type	Path
+12345678-USD	FEES	Expenses	Investment Transaction Fees
+12345678-USD	INCOME	Income	Dividend Income
+12345678-USD	WITHHOLDING:CUSIP:987654321	Expenses	Taxes	US Federal

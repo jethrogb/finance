@@ -1,0 +1,32 @@
+Jethro's finance tools
+Copyright (C) 2014  Jethro G. Beekman
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+diff --git a/src/import-export/ofx/gnc-ofx-import.c b/src/import-export/ofx/gnc-ofx-import.c
+index 72bd122..b959618 100644
+--- a/src/import-export/ofx/gnc-ofx-import.c
++++ b/src/import-export/ofx/gnc-ofx-import.c
+@@ -647,8 +647,8 @@ int ofx_proc_transaction_cb(struct OfxTransactionData data, void * transaction_u
+                     xaccTransAppendSplit(transaction, split);
+                     xaccAccountInsertSplit(investment_account, split);
+ 
+-                    gnc_amount = gnc_ofx_numeric_from_double (ofx_get_investment_amount(&data),
+-                                 investment_commodity);
++                    gnc_amount = gnc_ofx_numeric_from_double_txn (ofx_get_investment_amount(&data),
++                                 transaction);
+                     gnc_units = gnc_ofx_numeric_from_double (data.units, investment_commodity);
+                     xaccSplitSetAmount(split, gnc_units);
+                     xaccSplitSetValue(split, gnc_amount);

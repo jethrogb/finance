@@ -1,0 +1,27 @@
+commit 5ad6ec5449cded65429e2166ca46eba3ca66c9aa
+Author: Geert Janssens <janssens-geert@telenet.be>
+Date:   Fri Feb 22 18:17:21 2013 +0000
+
+    Add child functions to Account in python bindings.
+    
+    Add children discovery functions to Account type for the python bindings.
+    
+    Author: Hendrik van Antwerpen <hendrik@van-antwerpen.net>
+    
+    git-svn-id: svn+ssh://svn.gnucash.org/repo/gnucash/trunk@22806 57a11ea4-9604-0410-9ed3-97b8803252fd
+
+diff --git a/src/optional/python-bindings/gnucash_core.py b/src/optional/python-bindings/gnucash_core.py
+index 530bb24..953a884 100644
+--- a/src/optional/python-bindings/gnucash_core.py
++++ b/src/optional/python-bindings/gnucash_core.py
+@@ -639,6 +639,10 @@ account_dict =  {
+ methods_return_instance(Account, account_dict)
+ methods_return_instance_lists(
+     Account, { 'GetSplitList': Split,
++               'get_children': Account,
++               'get_children_sorted': Account,
++               'get_descendants': Account,
++               'get_descendants_sorted': Account
+                        })
+ Account.name = property( Account.GetName, Account.SetName )
+ 
